@@ -44,20 +44,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Anonim</td>
-                                            <td>Staff IT</td>
-                                            <td>0812345678</td>
-                                            <td>satu@gmail.com</td>
-                                            <td>
-                                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                                    <button type="button" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></button>
-                                                    <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <?php $no = 1; ?>
+                                        <?php foreach ($karyawan as $k) : ?>
+                                            <tr>
+                                                <td><?= $no++; ?></td>
+                                                <td><?= $k['nama']; ?></td>
+                                                <td><?= $k['jabatan']; ?></td>
+                                                <td><?= $k['no_hp']; ?></td>
+                                                <td><?= $k['email']; ?></td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                        <button type="button" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></button>
+                                                        <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-danger btn-sm" data-id="<?= $k['idKaryawan']; ?>" id="deleteButton"><i class="fas fa-trash"></i></button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -71,7 +74,6 @@
     </div>
     <!-- /.content-wrapper -->
 
-
     <!-- Modal Add -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -82,9 +84,13 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="POST">
+                <form id="tambahKaryawan">
                     <div class="modal-body">
                         <div class="row">
+                            <div class="col-12">
+                                <div class="alert alert-danger print-error-msg" style="display:none">
+                                </div>
+                            </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Nama Karyawan</label>
                                 <input type="text" class="form-control" name="nama">
@@ -115,7 +121,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Password</label>
-                                <input type="text" class="form-control" name="password">
+                                <input type="password" class="form-control" name="password">
                             </div>
                         </div>
                     </div>
