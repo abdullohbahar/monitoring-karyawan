@@ -3,8 +3,6 @@ $("#tambahKaryawan").on("submit", function (e) {
 
 	var data = $("#tambahKaryawan").serialize();
 
-	console.log(data);
-
 	$.ajax({
 		url: base_url + "/dataKaryawan/store",
 		type: "POST",

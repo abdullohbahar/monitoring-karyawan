@@ -29,4 +29,10 @@ class Mkaryawan extends CI_Model
     {
         return $this->db->get_where('karyawan', $where);
     }
+
+    public function ubahPassword($where, $data)
+    {
+        $this->db->where($where);
+        $this->db->update('karyawan', $data);
+    }
 }

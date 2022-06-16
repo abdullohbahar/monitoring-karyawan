@@ -31,6 +31,7 @@
 <script src="<?= base_url('assets/'); ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="<?= base_url('assets/js/'); ?>presensi.js"></script>
 <script src="<?= base_url('assets/js/'); ?>clock.js"></script>
+<script src="<?= base_url('assets/js/'); ?>ubah-password.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
