@@ -1,10 +1,10 @@
-$("#tambahKaryawan").on("submit", function (e) {
+$("#tambahAdmin").on("submit", function (e) {
 	e.preventDefault();
 
-	var data = $("#tambahKaryawan").serialize();
+	var data = $("#tambahAdmin").serialize();
 
 	$.ajax({
-		url: base_url + "/dataKaryawan/store",
+		url: base_url + "/dataAdmin/store",
 		type: "POST",
 		dataType: "json",
 		data: data,
@@ -24,37 +24,31 @@ $("#tambahKaryawan").on("submit", function (e) {
 	});
 });
 
-$("body").on("click", "#btnUpdate", function () {
+$("body").on("click", "#btnUpdateAdmin", function () {
 	$("#modalEdit").modal("show");
 
 	var id = $(this).data("id");
 
 	$.ajax({
-		url: base_url + "/DataKaryawan/getKaryawan/" + id,
+		url: base_url + "/DataAdmin/getAdmin/" + id,
 		type: "GET",
 		dataType: "json",
 		success: function (response) {
 			if (response.status == 200) {
-				$("#idKaryawan").val(response.data[0].idKaryawan);
-				$("#nama").val(response.data[0].nama);
-				$("#alamat").val(response.data[0].alamat);
+				$("#idAdmin").val(response.data[0].idAdmin);
 				$("#email").val(response.data[0].email);
-				$("#no_hp").val(response.data[0].no_hp);
-				$("#jabatan").val(response.data[0].jabatan);
-				$("#nik").val(response.data[0].nik);
-				$("#status").val(response.data[0].status);
 			}
 		},
 	});
 });
 
-$("#updateKaryawan").on("submit", function (e) {
+$("#updateAdmin").on("submit", function (e) {
 	e.preventDefault();
 
-	var data = $("#updateKaryawan").serialize();
+	var data = $("#updateAdmin").serialize();
 
 	$.ajax({
-		url: base_url + "/dataKaryawan/update",
+		url: base_url + "/dataAdmin/update",
 		type: "POST",
 		dataType: "json",
 		data: data,
@@ -74,7 +68,7 @@ $("#updateKaryawan").on("submit", function (e) {
 	});
 });
 
-$("body").on("click", "#deleteButton", function () {
+$("body").on("click", "#deleteButtonAdmin", function () {
 	Swal.fire({
 		title: "Apakah Kamu Benar-Benar Ingin Menghapus Data Ini?",
 		text: "Kamu Tidak Dapat Mengembalikan Data Jika Telah Dihapus",
@@ -87,7 +81,7 @@ $("body").on("click", "#deleteButton", function () {
 		if (result.isConfirmed) {
 			var id = $(this).data("id");
 			$.ajax({
-				url: base_url + "/dataKaryawan/destroy/" + id,
+				url: base_url + "/dataAdmin/destroy/" + id,
 				dataType: "json",
 				type: "POST",
 				success: function (response) {

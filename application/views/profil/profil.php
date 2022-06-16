@@ -27,7 +27,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <label for="">Password</label>
-                                    <input type="password" name="password" required class="form-control" id="">
+                                    <input type="password" name="password" class="form-control" id="password" required>
                                 </div>
                                 <div class="col-12 mt-2">
                                     <button type="submit" class="btn btn-success btn-block">Ubah Password</button>

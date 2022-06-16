@@ -48,8 +48,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-user mr-2"></i> Profile
+                        <a href="<?= base_url('profil'); ?>" class="dropdown-item">
+                            <i class="fas fa-user mr-2"></i> Ubah Password
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="<?= base_url('login/logout'); ?>" class="dropdown-item">

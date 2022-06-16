@@ -11,6 +11,8 @@ $("#ubahPassword").on("submit", function (e) {
 		success: function (response) {
 			var message = response.success;
 			alertSuccess(message);
+
+			document.getElementById("password").value = "";
 		},
 	});
 });

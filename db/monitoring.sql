@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 16, 2022 at 08:31 AM
+-- Generation Time: Jun 16, 2022 at 04:12 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -34,6 +34,13 @@ CREATE TABLE `admin` (
   `idSuperadmin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`idAdmin`, `email`, `password`, `idSuperadmin`) VALUES
+(2, 'admin@gmail.com', '$2y$10$oJ6qiIaxMEWxgHNLExeUheN0aYVO2tq7lrlyUsMo37/o6W84vecGO', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -58,9 +65,7 @@ CREATE TABLE `karyawan` (
 --
 
 INSERT INTO `karyawan` (`idKaryawan`, `idAdmin`, `nama`, `alamat`, `email`, `no_hp`, `jabatan`, `nik`, `password`, `status`) VALUES
-(7, 0, 'Silvia Wijayanti', 'Jr. Peta No. 750, Batam 76004, SumUt', 'silvia@gmail.com', '08429 5607 605 ', 'HR', '1234567890123456', '$2y$10$fBX/FGWVMxFRH.EwWiwQT.buZlbkmsnoxV.nFt0rJzXEazIHujhe.', 'Aktif'),
-(9, 0, 'Kenes Hardiansyah', 'Dk. Dago No. 106, Kupang 84930, Jambi', 'kenes@gmail.com', '085701223722', 'Staff IT', '1241231231232123', '$2y$10$1ihcGOGCjhj3B53itqM.6uPFU1Ulo1EbC3KsJzAfiFRGgj88G8ow6', 'Aktif'),
-(10, 0, 'karyawan', 'karyawan', 'karyawan@gmail.com', '123467789', 'karyawan', '123456780012311', '$2y$10$EMZ/yWCK4TLTufQuGa37aej7PK72DTB46k.nXS4WH23JQaI6SzNIS', 'karyawan');
+(11, 0, 'Gatra Nashiruddin', 'Gg. Ahmad Dahlan No. 254, Yogyakarta 82879, Bali', 'karyawan@gmail.com', '0812345678', 'Karyawan', '8327818273821', '$2y$10$/BNl1mdzD/.Ne6AKRHdKwu8dBFrMtINGLbXzf.iUAm3EvKFRGRkbe', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -72,23 +77,10 @@ CREATE TABLE `presensi` (
   `idPresensi` int(11) NOT NULL,
   `idKaryawan` int(11) DEFAULT NULL,
   `keterangan` text,
-  `jenis_presensi` varchar(10) NOT NULL,
+  `jenis_presensi` varchar(20) NOT NULL,
   `tanggal` varchar(11) DEFAULT NULL,
   `jam` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `presensi`
---
-
-INSERT INTO `presensi` (`idPresensi`, `idKaryawan`, `keterangan`, `jenis_presensi`, `tanggal`, `jam`) VALUES
-(1, 10, 'Terlambat', 'Masuk', '0000-00-00', '12:27:24'),
-(2, 10, 'Terlambat', 'Masuk', '16-06-2022', '12:37:39'),
-(3, NULL, 'Terlambat', 'Masuk', '16-06-2022', '12:39:18'),
-(4, NULL, 'Terlambat', 'Masuk', '16-06-2022', '12:40:20'),
-(5, NULL, 'Terlambat', 'Masuk', '16-06-2022', '12:42:17'),
-(6, NULL, 'Terlambat', 'Masuk', '16-06-2022', '12:42:58'),
-(14, 10, 'Pulang', 'Pulang', '16-06-2022', '15:13:25');
 
 -- --------------------------------------------------------
 
@@ -101,6 +93,13 @@ CREATE TABLE `superadmin` (
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `superadmin`
+--
+
+INSERT INTO `superadmin` (`idSuperadmin`, `email`, `password`) VALUES
+(1, 'superadmin@gmail.com', '$2y$10$IY6JwNNdMrk/Rkx0pnpZsOgbinb1/wmLvoVttpQHn0OuopeoWjtjC');
 
 --
 -- Indexes for dumped tables
@@ -138,25 +137,25 @@ ALTER TABLE `superadmin`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `idKaryawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idKaryawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `presensi`
 --
 ALTER TABLE `presensi`
-  MODIFY `idPresensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idPresensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `superadmin`
 --
 ALTER TABLE `superadmin`
-  MODIFY `idSuperadmin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSuperadmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

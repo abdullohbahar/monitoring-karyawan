@@ -5,6 +5,10 @@ class DashboardKaryawan extends CI_Controller
 {
     public function index()
     {
+        if ($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'superadmin') {
+            redirect('dashboard');
+        }
+
         $id = $this->session->userdata('id');
         $date = date('d-m-Y');
         $cekPresensiMasuk = $this->Mpresensi->getPresensiWhere(['idKaryawan' => $id, 'tanggal' => $date, 'jenis_presensi' => 'masuk'])->row();

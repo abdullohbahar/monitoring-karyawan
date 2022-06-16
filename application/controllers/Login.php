@@ -6,14 +6,17 @@ class Login extends CI_Controller
     public function index()
     {
         //jika statusnya sudah login, maka tidak bisa mengakses halaman login alias dikembalikan ke tampilan sebelumnya
-        if ($this->session->userdata('role')) {
+        if ($this->session->userdata('role') == 'karyawan') {
             redirect('DashboardKaryawan');
+        } else if ($this->session->userdata('role') == 'admin' || $this->session->userdata('role') == 'superadmin') {
+            redirect('dashboard');
         }
 
         $this->form_validation->set_rules('email', 'Alamat Email', 'required|trim|valid_email', [
             'required' => 'Email Harus diisi!!',
             'valid_email' => 'Email Tidak Benar!!'
         ]);
+
         $this->form_validation->set_rules('password', 'Password', 'required|trim', [
             'required' => 'Password Harus diisi'
         ]);
@@ -31,8 +34,8 @@ class Login extends CI_Controller
         $email = htmlspecialchars($this->input->post('email', true));
         $password = $this->input->post('password', true);
         $karyawan = $this->Mkaryawan->cekKaryawan(['email' => $email])->row_array();
-        $admin = $this->Mkaryawan->cekKaryawan(['email' => $email])->row_array();
-        $superadmin = $this->Mkaryawan->cekKaryawan(['email' => $email])->row_array();
+        $admin = $this->Muser->cekUser(['email' => $email], 'admin')->row_array();
+        $superadmin = $this->Muser->cekUser(['email' => $email], 'superadmin')->row_array();
 
         //cek apakah email ada diuser karyawan
         if ($karyawan) {
@@ -56,10 +59,11 @@ class Login extends CI_Controller
             if (password_verify($password, $admin['password'])) {
                 $data = [
                     'email' => $admin['email'],
-                    'role_id' => $admin['role_id']
+                    'id' => $admin['idAdmin'],
+                    'role' => 'admin'
                 ];
                 $this->session->set_userdata($data);
-                redirect('admin');
+                redirect('dashboard');
             } else {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Password salah!!</div>');
                 redirect('login');
@@ -69,10 +73,11 @@ class Login extends CI_Controller
             if (password_verify($password, $superadmin['password'])) {
                 $data = [
                     'email' => $superadmin['email'],
-                    'role_id' => $superadmin['role_id']
+                    'id' => $superadmin['idSuperadmin'],
+                    'role' => 'superadmin'
                 ];
                 $this->session->set_userdata($data);
-                redirect('admin');
+                redirect('dashboard');
             } else {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Password salah!!</div>');
                 redirect('login');

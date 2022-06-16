@@ -54,8 +54,7 @@
                                                 <td><?= $k['email']; ?></td>
                                                 <td>
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                                        <button type="button" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></button>
-                                                        <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-info btn-sm" data-id="<?= $k['idKaryawan']; ?>" id="btnUpdate"><i class="fas fa-pencil-alt"></i></button>
                                                         <button type="button" class="btn btn-danger btn-sm" data-id="<?= $k['idKaryawan']; ?>" id="deleteButton"><i class="fas fa-trash"></i></button>
                                                     </div>
                                                 </td>
@@ -128,6 +127,68 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Tambah Data Karyawan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Data karyawan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="updateKaryawan">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="alert alert-danger print-error-msg-edit" style="display:none">
+                                </div>
+                            </div>
+                            <input type="hidden" name="idKaryawan" id="idKaryawan">
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label for="">Nama Karyawan</label>
+                                <input type="text" class="form-control" name="nama" id="nama" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label for="">Alamat</label>
+                                <input type="text" class="form-control" name="alamat" id="alamat" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label for="">No HP</label>
+                                <input type="text" class="form-control" name="no_hp" id="no_hp" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label for="">Jabatan</label>
+                                <input type="text" class="form-control" name="jabatan" id="jabatan" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label for="">NIK</label>
+                                <input type="text" class="form-control" name="nik" id="nik" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label for="">Status</label>
+                                <input type="text" class="form-control" name="status" id="status" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label for="">Password</label>
+                                <input type="password" class="form-control" id="password" autocomplete="off" name="password">
+                                <span><i>Biarkan Kosong Jika Tidak Ingin Merubah Password</i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </form>
             </div>

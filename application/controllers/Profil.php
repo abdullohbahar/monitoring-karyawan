@@ -12,25 +12,15 @@ class Profil extends CI_Controller
 
         $role = $this->session->userdata('role');
 
-        if ($role == 'admin') {
-            $this->load->view('template/header', $data);
-            $this->load->view('profil/profil', $data);
-            $this->load->view('template/sidebar');
-            $this->load->view('template/footer');
-        } elseif ($role == 'karyawan') {
-            $this->load->view('template-karyawan/header', $data);
-            $this->load->view('profil/profil', $data);
-            $this->load->view('template-karyawan/sidebar');
-            $this->load->view('template-karyawan/footer');
-        } elseif ($role == 'superadmin') {
-        }
+        $this->load->view('template/header', $data);
+        $this->load->view('profil/profil', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('template/footer');
     }
 
     public function ubahPassword()
     {
-        $where = [
-            'idKaryawan' => $this->session->userdata('id')
-        ];
+        $role = $this->session->userdata('role');
 
         $password = password_hash($this->input->post('password', true), PASSWORD_DEFAULT);
 
@@ -38,7 +28,25 @@ class Profil extends CI_Controller
             'password' => $password
         ];
 
-        $this->Mkaryawan->ubahPassword($where, $data);
+        if ($role == 'karyawan') {
+
+            $where = [
+                'idKaryawan' => $this->session->userdata('id')
+            ];
+            $this->Mkaryawan->ubahPassword($where, $data);
+        } else if ($role == 'admin') {
+
+            $where = [
+                'idAdmin' => $this->session->userdata('id')
+            ];
+            $this->Mkaryawan->ubahPasswordAdmin($where, $data);
+        } else if ($role == 'superadmin') {
+
+            $where = [
+                'idSuperadmin' => $this->session->userdata('id')
+            ];
+            $this->Mkaryawan->ubahPasswordSuperadmin($where, $data);
+        }
 
         echo json_encode(['success' => 'Password Berhasil Diubah.']);
     }

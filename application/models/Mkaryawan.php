@@ -30,9 +30,27 @@ class Mkaryawan extends CI_Model
         return $this->db->get_where('karyawan', $where);
     }
 
+    public function ubahKaryawan($where, $data)
+    {
+        $this->db->where($where);
+        $this->db->update('karyawan', $data);
+    }
+
     public function ubahPassword($where, $data)
     {
         $this->db->where($where);
         $this->db->update('karyawan', $data);
+    }
+
+    public function ubahPasswordAdmin($where, $data)
+    {
+        $this->db->where($where);
+        $this->db->update('admin', $data);
+    }
+
+    public function ubahPasswordSuperadmin($where, $data)
+    {
+        $this->db->where($where);
+        $this->db->update('superadmin', $data);
     }
 }

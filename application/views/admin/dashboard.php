@@ -45,16 +45,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Kenes Hardiansyah</td>
-                      <td>07.45</td>
-                      <td><span class="badge badge-success">Tepat Waktu</span></td>
-                    </tr>
-                    <tr>
-                      <td>Silvia Wijayanti</td>
-                      <td>08.15</td>
-                      <td><span class="badge badge-warning">Terlambat</span></td>
-                    </tr>
+                    <?php foreach ($presensi as $p) : ?>
+                      <tr>
+                        <td><?= $p['nama']; ?></td>
+                        <td><?= $p['jam']; ?></td>
+                        <td><?= $p['keterangan']; ?></td>
+                      </tr>
+                    <?php endforeach ?>
                   </tbody>
                 </table>
               </div>

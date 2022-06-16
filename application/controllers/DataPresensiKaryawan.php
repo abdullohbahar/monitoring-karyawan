@@ -34,7 +34,7 @@ class DataPresensiKaryawan extends CI_Controller
             'idKaryawan' => $this->session->userdata('id'),
             'keterangan' => $keterangan,
             'jenis_presensi' => 'Masuk',
-            'tanggal' => date("d-m-Y"),
+            'tanggal' => date("Y-m-d"),
             'jam' => date("H:i:s"),
         ];
 
@@ -51,7 +51,7 @@ class DataPresensiKaryawan extends CI_Controller
             'idKaryawan' => $this->session->userdata('id'),
             'keterangan' => 'Pulang',
             'jenis_presensi' => 'Pulang',
-            'tanggal' => date("d-m-Y"),
+            'tanggal' => date("Y-m-d"),
             'jam' => date("H:i:s"),
         ];
 

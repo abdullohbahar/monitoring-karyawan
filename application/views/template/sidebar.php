@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?= base_url(); ?>" class="brand-link text-center">
-        <span class="brand-text font-weight-light"><b>ADMIN</b></span>
+        <span class="brand-text font-weight-light"><b><?= $this->session->userdata('role') == 'admin' ? 'ADMIN' : 'SUPERADMIN'; ?></b></span>
     </a>
 
     <!-- Sidebar -->
@@ -21,14 +21,26 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('dataKaryawan'); ?>" class="nav-link <?= $active == 'Data Karyawan' ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Data Karyawan
-                        </p>
-                    </a>
-                </li>
+                <?php if ($this->session->userdata('role') == 'superadmin' || $this->session->userdata('role') == 'admin') : ?>
+                    <li class="nav-item">
+                        <a href="<?= base_url('dataKaryawan'); ?>" class="nav-link <?= $active == 'Data Karyawan' ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Data Karyawan
+                            </p>
+                        </a>
+                    </li>
+                <?php endif ?>
+                <?php if ($this->session->userdata('role') == 'superadmin') : ?>
+                    <li class="nav-item">
+                        <a href="<?= base_url('dataAdmin'); ?>" class="nav-link <?= $active == 'Data Admin' ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Data Admin
+                            </p>
+                        </a>
+                    </li>
+                <?php endif ?>
                 <li class="nav-item">
                     <a href="<?= base_url('dataPresensi'); ?>" class="nav-link <?= $active == 'Data Presensi' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-book"></i>

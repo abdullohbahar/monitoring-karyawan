@@ -20,10 +20,10 @@
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="<?= base_url(''); ?>index2.html" class="h1"><b>Login</b></a>
+                <a href="<?= base_url(''); ?>" class="h1"><b>Login</b></a>
             </div>
             <div class="card-body">
-
+                <?= $this->session->flashdata('pesan'); ?>
                 <form action="<?= base_url('login'); ?>" method="post">
 
                     <div class="input-group mb-3">

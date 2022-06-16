@@ -19,4 +19,10 @@ class Mpresensi extends CI_Model
         $this->db->from('presensi');
         return $this->db->get();
     }
+
+    public function ubahPresensi($where, $data)
+    {
+        $this->db->where($where);
+        $this->db->update('presensi', $data);
+    }
 }
