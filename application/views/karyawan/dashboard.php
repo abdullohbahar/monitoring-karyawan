@@ -25,7 +25,7 @@
             <div class="card-body">
               <div class="row justify-content-center">
                 <div class="col-12 mb-2">
-                  <h5 class="text-center">Selamat Datang Di Web Informasi Penggajian Absensi Karyawan Silahkan Melakukan Absensi <b>Silvia Wijayanti.</b></h5>
+                  <h5 class="text-center">Selamat Datang Di Web Presensi Karyawan Silahkan Melakukan Presensi <b><?= $this->session->userdata('idKaryawan'); ?>.</b></h5>
                 </div>
                 <div class="col-8">
                   <div class="clock">
@@ -60,11 +60,15 @@
               </div>
               <div class="row justify-content-center">
                 <div class="col-3 mt-2">
-                  <div class="card">
-                    <div class="card-body text-center" style="background-color: #238B39 !important; color: white;">
-                      <h4><b>Masuk</b></h4>
-                    </div>
-                  </div>
+                  <?php if ($cekPresensiMasuk == null) : ?>
+                    <a href="javascript:void(0)" id="absenMasuk">
+                      <div class="card">
+                        <div class="card-body text-center" style="background-color: #238B39 !important; color: white;">
+                          <h4><b>Masuk</b></h4>
+                        </div>
+                      </div>
+                    </a>
+                  <?php endif ?>
                 </div>
                 <div class="col-3 mt-2">
                   <div class="card">

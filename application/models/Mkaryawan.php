@@ -24,4 +24,9 @@ class Mkaryawan extends CI_Model
         $this->db->from('karyawan');
         return $this->db->get();
     }
+
+    public function cekKaryawan($where = null)
+    {
+        return $this->db->get_where('karyawan', $where);
+    }
 }

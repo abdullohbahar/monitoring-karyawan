@@ -25,28 +25,12 @@
                     <a href="<?= base_url('dataPekerjaanKaryawan'); ?>" class="nav-link <?= $active == 'Data Pekerjaan' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>
-                            Data Pekerjaan
+                            Data Presensi
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('gajiKaryawan'); ?>" class="nav-link <?= $active == 'Gaji Karyawan' ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-bookmark"></i>
-                        <p>
-                            Gaji Karyawan
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('laporanKaryawan'); ?>" class="nav-link <?= $active == 'Laporan' ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-file-upload"></i>
-                        <p>
-                            Laporan
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="<?= base_url('login/logout'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
                             Logout
