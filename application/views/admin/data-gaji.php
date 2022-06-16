@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Data Laporan Pekerjaan</h1>
+                        <h1 class="m-0">Data Gaji Karyawan</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Data Laporan Pekerjaan</li>
+                            <li class="breadcrumb-item active">Data Gaji Karyawan</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -36,24 +36,26 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Karyawan</th>
-                                            <th>Tanggal Laporan</th>
-                                            <th>Detail Pekerjaan</th>
-                                            <!-- <th>Aksi</th> -->
+                                            <th>Potongan</th>
+                                            <th>Penghasilan</th>
+                                            <th>Total Gaji</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
                                             <td>Silvia Wijayanti</td>
-                                            <td>02-06-2022</td>
-                                            <td>Wawancara Calon Karyawan Baru</td>
-                                            <!-- <td>
+                                            <td>Rp. 808.000</td>
+                                            <td>Rp. 6.280.000</td>
+                                            <td>Rp. 5.472.000</td>
+                                            <td>
                                                 <div class="btn-group" role="group" aria-label="Basic example">
                                                     <button type="button" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></button>
                                                     <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></button>
                                                     <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                                                 </div>
-                                            </td> -->
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

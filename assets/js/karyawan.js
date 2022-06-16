@@ -28,13 +28,13 @@ $("#tambahKaryawan").on("submit", function (e) {
 
 $("body").on("click", "#deleteButton", function () {
 	Swal.fire({
-		title: "Are you sure?",
-		text: "You won't be able to revert this!",
+		title: "Apakah Kamu Benar-Benar Ingin Menghapus Data Ini?",
+		text: "Kamu Tidak Dapat Mengembalikan Data Jika Telah Dihapus",
 		icon: "warning",
 		showCancelButton: true,
 		confirmButtonColor: "#3085d6",
 		cancelButtonColor: "#d33",
-		confirmButtonText: "Yes, delete it!",
+		confirmButtonText: "Ya Hapus!",
 	}).then((result) => {
 		if (result.isConfirmed) {
 			var id = $(this).data("id");

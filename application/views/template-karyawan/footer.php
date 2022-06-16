@@ -30,6 +30,7 @@
 <script src="<?= base_url('assets/'); ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= base_url('assets/'); ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="<?= base_url('assets/js/'); ?>karyawan.js"></script>
+<script src="<?= base_url('assets/js/'); ?>clock.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>

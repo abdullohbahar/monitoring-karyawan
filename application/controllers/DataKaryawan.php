@@ -9,9 +9,10 @@ class DataKaryawan extends CI_Controller
         $data = [
             'active' => 'Data Karyawan',
             'karyawan' => $karyawan,
+            'title' => 'Data Karyawan'
         ];
 
-        $this->load->view('template/header');
+        $this->load->view('template/header', $data);
         $this->load->view('admin/data-karyawan', $data);
         $this->load->view('template/sidebar');
         $this->load->view('template/footer');

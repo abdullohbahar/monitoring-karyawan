@@ -35,25 +35,23 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Karyawan</th>
                                             <th>Tanggal Laporan</th>
                                             <th>Detail Pekerjaan</th>
-                                            <!-- <th>Aksi</th> -->
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Silvia Wijayanti</td>
                                             <td>02-06-2022</td>
                                             <td>Wawancara Calon Karyawan Baru</td>
-                                            <!-- <td>
+                                            <td>
                                                 <div class="btn-group" role="group" aria-label="Basic example">
                                                     <button type="button" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></button>
-                                                    <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                                    <!-- <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button> -->
                                                 </div>
-                                            </td> -->
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
