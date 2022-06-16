@@ -14,7 +14,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="<?= base_url('dashboard'); ?>" class="nav-link <?= $active == 'dashboard' ? 'active' : '' ?>">
+                    <a href="<?= base_url('dashboardkaryawan'); ?>" class="nav-link <?= $active == 'dashboard' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('dataPekerjaanKaryawan'); ?>" class="nav-link <?= $active == 'Data Pekerjaan' ? 'active' : '' ?>">
+                    <a href="<?= base_url('dataPresensiKaryawan'); ?>" class="nav-link <?= $active == 'Data Presensi' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>
                             Data Presensi

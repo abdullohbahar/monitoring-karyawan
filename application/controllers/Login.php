@@ -41,7 +41,7 @@ class Login extends CI_Controller
                 $data = [
                     'email' => $karyawan['email'],
                     'nama' => $karyawan['nama'],
-                    'idKaryawan' => $karyawan['idKaryawan'],
+                    'id' => $karyawan['idKaryawan'],
                     'role' => 'karyawan'
                 ];
                 $this->session->set_userdata($data);
@@ -88,6 +88,7 @@ class Login extends CI_Controller
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role');
         $this->session->unset_userdata('nama');
+        $this->session->unset_userdata('id');
 
         $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Anda telah logout!!</div>');
         redirect('login');

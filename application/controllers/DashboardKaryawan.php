@@ -5,14 +5,18 @@ class DashboardKaryawan extends CI_Controller
 {
     public function index()
     {
-        $id = $this->session->userdata('idKaryawan');
+        $id = $this->session->userdata('id');
         $date = date('d-m-Y');
-        $cekPresensiMasuk = $this->Mpresensi->getPresensiWhere(['tanggal' => $date, 'idKaryawan' => $id, 'jenis_presensi' => 'masuk'])->row();
+        $cekPresensiMasuk = $this->Mpresensi->getPresensiWhere(['idKaryawan' => $id, 'tanggal' => $date, 'jenis_presensi' => 'masuk'])->row();
+        $cekPresensiPulang = $this->Mpresensi->getPresensiWhere(['idKaryawan' => $id, 'tanggal' => $date, 'jenis_presensi' => 'pulang'])->row();
 
+        // var_dump($cekPresensiPulang);
+        // die;
         $data = [
             'active' => 'dashboard',
             'title' => 'Dashboard',
-            'cekPresensiMasuk' => $cekPresensiMasuk
+            'cekPresensiMasuk' => $cekPresensiMasuk,
+            'cekPresensiPulang' => $cekPresensiPulang
         ];
 
 

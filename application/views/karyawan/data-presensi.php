@@ -35,21 +35,19 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Karyawan</th>
-                                            <th>Status Presensi</th>
+                                            <th>Keterangan Presensi</th>
                                             <th>Jam</th>
                                             <th>Tanggal</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php $no = 1; ?>
                                         <?php foreach ($presensi as $p) : ?>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><?= $no++; ?></td>
+                                                <td><?= $p['keterangan']; ?></td>
+                                                <td><?= $p['jam']; ?></td>
+                                                <td><?= $p['tanggal']; ?></td>
                                             </tr>
                                         <?php endforeach ?>
                                     </tbody>
