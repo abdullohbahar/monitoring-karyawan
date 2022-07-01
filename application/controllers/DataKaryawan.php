@@ -10,7 +10,11 @@ class DataKaryawan extends CI_Controller
         }
 
         $jabatan = $this->Mjabatan->getAllJabatan()->result_array();
-        $karyawan = $this->Mkaryawan->getAllKaryawan()->result_array();
+
+        $this->db->select('*');
+        $this->db->from('jabatan');
+        $this->db->join('karyawan', 'karyawan.idJabatan = jabatan.idJabatan');
+        $karyawan = $this->db->get()->result_array();
         $data = [
             'active' => 'Data Karyawan',
             'karyawan' => $karyawan,

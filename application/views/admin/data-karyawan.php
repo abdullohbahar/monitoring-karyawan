@@ -37,6 +37,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Karyawan</th>
+                                            <th>Jabatan</th>
                                             <th>No HP</th>
                                             <th>Email</th>
                                             <th>Aksi</th>
@@ -48,6 +49,7 @@
                                             <tr>
                                                 <td><?= $no++; ?></td>
                                                 <td><?= $k['nama']; ?></td>
+                                                <td><?= $k['nama_jabatan']; ?></td>
                                                 <td><?= $k['no_hp']; ?></td>
                                                 <td><?= $k['email']; ?></td>
                                                 <td>
