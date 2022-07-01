@@ -33,6 +33,7 @@
 <script src="<?= base_url('assets/js/'); ?>admin.js"></script>
 <script src="<?= base_url('assets/js/'); ?>presensi.js"></script>
 <script src="<?= base_url('assets/js/'); ?>ubah-password.js"></script>
+<script src="<?= base_url('assets/js/'); ?>jabatan.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
@@ -46,7 +47,8 @@
                 info: true,
                 autoWidth: false,
                 responsive: true,
-            })
+                buttons: ["csv", "excel", "pdf", "print"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 </script>
 

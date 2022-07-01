@@ -45,7 +45,8 @@
                 info: true,
                 autoWidth: false,
                 responsive: true,
-            })
+                buttons: ["csv", "excel", "pdf", "print"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 </script>
 

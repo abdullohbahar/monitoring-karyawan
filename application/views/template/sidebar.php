@@ -50,6 +50,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= base_url('DataJabatan'); ?>" class="nav-link <?= $active == 'Data Jabatan' ? 'active' : '' ?>">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Data Jabatan
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url('login/logout'); ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>

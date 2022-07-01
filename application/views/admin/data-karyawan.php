@@ -116,7 +116,10 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Status</label>
-                                <input type="text" class="form-control" name="status">
+                                <select name="status" class="form-control">
+                                    <option value="Aktif">Aktif</option>
+                                    <option value="Non aktif">Non Aktif</option>
+                                </select>
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Password</label>
@@ -177,7 +180,10 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Status</label>
-                                <input type="text" class="form-control" name="status" id="status" required>
+                                <select name="status" class="form-control" id="status">
+                                    <option value="Aktif">Aktif</option>
+                                    <option value="Non aktif">Non Aktif</option>
+                                </select>
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Password</label>

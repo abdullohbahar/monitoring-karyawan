@@ -10,11 +10,11 @@ class DashboardKaryawan extends CI_Controller
         }
 
         $id = $this->session->userdata('id');
-        $date = date('d-m-Y');
+        $date = date('Y-m-d');
         $cekPresensiMasuk = $this->Mpresensi->getPresensiWhere(['idKaryawan' => $id, 'tanggal' => $date, 'jenis_presensi' => 'masuk'])->row();
         $cekPresensiPulang = $this->Mpresensi->getPresensiWhere(['idKaryawan' => $id, 'tanggal' => $date, 'jenis_presensi' => 'pulang'])->row();
 
-        // var_dump($cekPresensiPulang);
+        // var_dump($cekPresensiMasuk);
         // die;
         $data = [
             'active' => 'dashboard',
