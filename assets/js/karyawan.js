@@ -35,12 +35,13 @@ $("body").on("click", "#btnUpdate", function () {
 		dataType: "json",
 		success: function (response) {
 			if (response.status == 200) {
+				console.log(response);
 				$("#idKaryawan").val(response.data[0].idKaryawan);
 				$("#nama").val(response.data[0].nama);
 				$("#alamat").val(response.data[0].alamat);
 				$("#email").val(response.data[0].email);
 				$("#no_hp").val(response.data[0].no_hp);
-				$("#jabatan").val(response.data[0].jabatan);
+				$("#jabatan").val(response.data[0].idJabatan);
 				$("#nik").val(response.data[0].nik);
 				$("#status").val(response.data[0].status);
 			}

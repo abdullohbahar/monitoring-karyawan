@@ -37,7 +37,6 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Karyawan</th>
-                                            <th>Jabatan</th>
                                             <th>No HP</th>
                                             <th>Email</th>
                                             <th>Aksi</th>
@@ -49,7 +48,6 @@
                                             <tr>
                                                 <td><?= $no++; ?></td>
                                                 <td><?= $k['nama']; ?></td>
-                                                <td><?= $k['jabatan']; ?></td>
                                                 <td><?= $k['no_hp']; ?></td>
                                                 <td><?= $k['email']; ?></td>
                                                 <td>
@@ -108,7 +106,12 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Jabatan</label>
-                                <input type="text" class="form-control" name="jabatan">
+                                <select name="jabatan" class="form-control">
+                                    <option value="">-- Pilih Jabatan --</option>
+                                    <?php foreach ($jabatan as $j) : ?>
+                                        <option value="<?= $j['idJabatan']; ?>"><?= $j['nama_jabatan']; ?></option>
+                                    <?php endforeach ?>
+                                </select>
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">NIK</label>
@@ -117,6 +120,7 @@
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Status</label>
                                 <select name="status" class="form-control">
+                                    <option value="">-- Pilih Status --</option>
                                     <option value="Aktif">Aktif</option>
                                     <option value="Non aktif">Non Aktif</option>
                                 </select>
@@ -172,7 +176,12 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Jabatan</label>
-                                <input type="text" class="form-control" name="jabatan" id="jabatan" required>
+                                <select name="jabatan" class="form-control" id="jabatan">
+                                    <option value="">-- Pilih Jabatan --</option>
+                                    <?php foreach ($jabatan as $j) : ?>
+                                        <option value="<?= $j['idJabatan']; ?>"><?= $j['nama_jabatan']; ?></option>
+                                    <?php endforeach ?>
+                                </select>
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">NIK</label>
@@ -181,6 +190,7 @@
                             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label for="">Status</label>
                                 <select name="status" class="form-control" id="status">
+                                    <option value="">-- Pilih Status --</option>
                                     <option value="Aktif">Aktif</option>
                                     <option value="Non aktif">Non Aktif</option>
                                 </select>

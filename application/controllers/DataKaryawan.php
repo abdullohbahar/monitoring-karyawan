@@ -9,10 +9,12 @@ class DataKaryawan extends CI_Controller
             redirect('dashboardkaryawan');
         }
 
+        $jabatan = $this->Mjabatan->getAllJabatan()->result_array();
         $karyawan = $this->Mkaryawan->getAllKaryawan()->result_array();
         $data = [
             'active' => 'Data Karyawan',
             'karyawan' => $karyawan,
+            'jabatan' => $jabatan,
             'title' => 'Data Karyawan'
         ];
 
@@ -39,10 +41,11 @@ class DataKaryawan extends CI_Controller
         } else {
             $data = [
                 'nama' => $this->input->post('nama', true),
+                'idAdmin' => $this->session->userdata('id'),
                 'alamat' => $this->input->post('alamat', true),
                 'email' => $this->input->post('email', true),
                 'no_hp' => $this->input->post('no_hp', true),
-                'jabatan' => $this->input->post('jabatan', true),
+                'idJabatan' => $this->input->post('jabatan', true),
                 'nik' => $this->input->post('nik', true),
                 'status' => $this->input->post('status', true),
                 'password' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
@@ -86,7 +89,7 @@ class DataKaryawan extends CI_Controller
                     'alamat' => $this->input->post('alamat', true),
                     'email' => $this->input->post('email', true),
                     'no_hp' => $this->input->post('no_hp', true),
-                    'jabatan' => $this->input->post('jabatan', true),
+                    'idJabatan' => $this->input->post('jabatan', true),
                     'nik' => $this->input->post('nik', true),
                     'status' => $this->input->post('status', true),
                 ];
@@ -96,7 +99,7 @@ class DataKaryawan extends CI_Controller
                     'alamat' => $this->input->post('alamat', true),
                     'email' => $this->input->post('email', true),
                     'no_hp' => $this->input->post('no_hp', true),
-                    'jabatan' => $this->input->post('jabatan', true),
+                    'idJabatan' => $this->input->post('jabatan', true),
                     'nik' => $this->input->post('nik', true),
                     'status' => $this->input->post('status', true),
                     'password' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
