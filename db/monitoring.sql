@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 16, 2022 at 04:12 PM
+-- Generation Time: Jul 01, 2022 at 12:42 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -39,7 +39,26 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`idAdmin`, `email`, `password`, `idSuperadmin`) VALUES
-(2, 'admin@gmail.com', '$2y$10$oJ6qiIaxMEWxgHNLExeUheN0aYVO2tq7lrlyUsMo37/o6W84vecGO', 0);
+(2, 'admin@gmail.com', '$2y$10$JpLAM9TbPOH6n08aUDrL5uxPt5e/x6b.ddaMcWGGFuHrDWuRoI8Cm', 0),
+(3, 'admin1@gmail.com', '$2y$10$0aWViOAPO9FgcyFKz7chl.faGveYJBtTz0CSYGUkBh03l/iAooiPe', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jabatan`
+--
+
+CREATE TABLE `jabatan` (
+  `idJabatan` int(11) NOT NULL,
+  `nama_jabatan` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jabatan`
+--
+
+INSERT INTO `jabatan` (`idJabatan`, `nama_jabatan`) VALUES
+(3, 'Staff IT');
 
 -- --------------------------------------------------------
 
@@ -54,7 +73,7 @@ CREATE TABLE `karyawan` (
   `alamat` text,
   `email` varchar(50) DEFAULT NULL,
   `no_hp` varchar(20) DEFAULT NULL,
-  `jabatan` varchar(50) DEFAULT NULL,
+  `idJabatan` varchar(50) DEFAULT NULL,
   `nik` text,
   `password` varchar(255) DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL
@@ -64,8 +83,8 @@ CREATE TABLE `karyawan` (
 -- Dumping data for table `karyawan`
 --
 
-INSERT INTO `karyawan` (`idKaryawan`, `idAdmin`, `nama`, `alamat`, `email`, `no_hp`, `jabatan`, `nik`, `password`, `status`) VALUES
-(11, 0, 'Gatra Nashiruddin', 'Gg. Ahmad Dahlan No. 254, Yogyakarta 82879, Bali', 'karyawan@gmail.com', '0812345678', 'Karyawan', '8327818273821', '$2y$10$/BNl1mdzD/.Ne6AKRHdKwu8dBFrMtINGLbXzf.iUAm3EvKFRGRkbe', 'Aktif');
+INSERT INTO `karyawan` (`idKaryawan`, `idAdmin`, `nama`, `alamat`, `email`, `no_hp`, `idJabatan`, `nik`, `password`, `status`) VALUES
+(1, 3, 'karyawan', 'yogyakarta', 'karyawan@gmail.com', '08123456789', '3', '304029390283923212', '$2y$10$yHdkYW2DdTQinIvhH5wNAO2Wh8q4aUiKRM0zCrUxcuhQN70j8aDmC', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -81,6 +100,16 @@ CREATE TABLE `presensi` (
   `tanggal` varchar(11) DEFAULT NULL,
   `jam` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `presensi`
+--
+
+INSERT INTO `presensi` (`idPresensi`, `idKaryawan`, `keterangan`, `jenis_presensi`, `tanggal`, `jam`) VALUES
+(3, 14, 'Terlambat', 'Masuk', '2022-06-30', '09:37:45'),
+(4, 14, 'Pulang', 'Pulang', '2022-06-30', '09:38:15'),
+(5, 12, 'Tidak masuk karena sakit', 'Tidak Masuk', '2022-06-30', '-'),
+(6, 12, '123asdf', 'Tidak Masuk', '2022-07-08', '-');
 
 -- --------------------------------------------------------
 
@@ -112,6 +141,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`idAdmin`);
 
 --
+-- Indexes for table `jabatan`
+--
+ALTER TABLE `jabatan`
+  ADD PRIMARY KEY (`idJabatan`);
+
+--
 -- Indexes for table `karyawan`
 --
 ALTER TABLE `karyawan`
@@ -140,16 +175,22 @@ ALTER TABLE `admin`
   MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `jabatan`
+--
+ALTER TABLE `jabatan`
+  MODIFY `idJabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `idKaryawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idKaryawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `presensi`
 --
 ALTER TABLE `presensi`
-  MODIFY `idPresensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idPresensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `superadmin`
